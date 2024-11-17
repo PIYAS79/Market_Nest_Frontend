@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
+import { useAppDispatch, useAppSelector } from "../redux/hooks"
+import { removeUser } from "../redux/features/authSlice";
 
 const Navbar = () => {
 
+    const { user_id } = useAppSelector(state => state.auth);
+    const dispatch = useAppDispatch();
 
     const navLinks = <>
         <Link to={'/'}><li><a>Homepage</a></li></Link>
@@ -57,15 +61,20 @@ const Navbar = () => {
                         className="dropdown-content border menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
                     >
                         <Link to={'/profile'}>
-                        <li><a>Profile</a></li>
+                            <li><a>Profile</a></li>
                         </Link>
                     </ul>
                 </div>
 
 
-                <Link to={'/login'}>
-                    <a className="btn btn-primary">Login</a>
-                </Link>
+                {
+                    user_id ?
+                        <button onClick={() => dispatch(removeUser())} className="btn btn-error text-white">Logout</button>
+                        :
+                        <Link to={'/login'}>
+                            <a className="btn btn-primary">Login</a>
+                        </Link>
+                }
             </div>
         </div>
     )

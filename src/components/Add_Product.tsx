@@ -1,6 +1,14 @@
+import { Category_Type } from "../constants/types";
+import { useGetAllCategoryQuery } from "../redux/api/categoryApi"
+
 
 
 const Add_Product = () => {
+
+    const { data } = useGetAllCategoryQuery(undefined);
+
+
+
     return (
         <>
             <h1 className='bg-green-600 text-center font-bold py-2'>Add Product</h1>
@@ -19,9 +27,8 @@ const Add_Product = () => {
                         <span className="label-text">Category</span>
                     </label>
                     <select className="select select-bordered w-full max-w-xs">
-                        <option disabled selected>Who shot first?</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                        <option disabled selected>Select Category</option>
+                        {data?.map((one: Category_Type) => <option key={one?.category_id}>{one.name}</option>)}
                     </select>
                 </div>
                 {/* Product Price */}
