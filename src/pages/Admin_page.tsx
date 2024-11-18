@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Add_Category from '../components/Add_Category'
 import Add_Product from '../components/Add_Product'
 
