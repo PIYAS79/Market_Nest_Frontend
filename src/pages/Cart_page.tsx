@@ -12,7 +12,7 @@ const Cart_page = () => {
                         <h2>Price : $90</h2>
                     </div>
                     <div className="h-full flex justify-center items-center">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlndpwDalSNF8TzBG6T7kGv73l0IOReNJpKw&s" alt="" />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIlfmfSxo4N9PTs-FUH1Q5fMCGu24SlxkSfDQ1X93-wFRVCUZFF1noFKdFaSrTiSdTmGE&usqp=CAU" alt="" />
                     </div>
                 </div>
                 
