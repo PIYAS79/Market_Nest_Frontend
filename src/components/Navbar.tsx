@@ -4,7 +4,7 @@ import { removeUser } from "../redux/features/authSlice";
 
 const Navbar = () => {
 
-    const { user_id, image } = useAppSelector(state => state.auth);
+    const { user_id, image,role } = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
     const me = useAppSelector(state => state.auth.email);
 
@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link to={'/product'}><li><a>Products</a></li></Link>
         <Link to={'/cart'}><li><a>Cart</a></li></Link>
         {
-            me == "super@gmail.com" && <Link to={'/admin/panel'}><li><a>Admin</a></li></Link>
+            role == "ADMIN" && <Link to={'/admin/panel'}><li><a>Admin</a></li></Link>
         }
     </>
 
@@ -50,26 +50,32 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="avatar online mr-2">
-                        <div className="w-12 rounded-full">
-                            {
-                                image && <img
-                                src={image}
-                                alt="Avatar"
-                            />
-                            }
+                {
+                    user_id &&
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="avatar online mr-2">
+                            <div className="w-12 rounded-full">
+                                {
+                                    image && <img
+                                        src={image}
+                                        alt="Avatar"
+                                    />
+                                }
+                            </div>
                         </div>
+                        <ul
+                            tabIndex={0}
+                            className="dropdown-content border menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                        >
+                            <Link to={'/profile'}>
+                                <li><a>Profile</a></li>
+                            </Link>
+                            <Link to={'/order-list'}>
+                                <li><a>Order List</a></li>
+                            </Link>
+                        </ul>
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content border menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-                    >
-                        <Link to={'/profile'}>
-                            <li><a>Profile</a></li>
-                        </Link>
-                    </ul>
-                </div>
+                }
 
 
                 {

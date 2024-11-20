@@ -13,6 +13,8 @@ import Admin_Products from "../pages/Admin_Products";
 import Profile_Page from "../pages/Profile_Page";
 import Admin_Update_Product from "../pages/Admin_Update_Product";
 import Update_Profile from "../pages/Update_Profile";
+import User_Order_List from "../pages/User_Order_List";
+import Protected_Routes from "../pages/Protected_Routes";
 
 
 const router = createBrowserRouter([
@@ -40,12 +42,16 @@ const router = createBrowserRouter([
                 path: '/profile/update/:uid',
                 loader: ({ params }) => fetch(`http://localhost:5022/app/v1/user/${params.uid}`),
                 element: <Update_Profile />
-            }
+            },
+            {
+                path: '/order-list',
+                element: <User_Order_List />
+            },
         ]
     },
     {
         path: '/admin',
-        element: <Admin_Rootpage />,
+        element: <Protected_Routes><Admin_Rootpage /></Protected_Routes>,
         children: [
             {
                 path: 'panel',
