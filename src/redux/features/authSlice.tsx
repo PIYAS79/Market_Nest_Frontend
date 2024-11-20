@@ -7,7 +7,9 @@ interface User_Type {
     image: string | null,
     email: string | null,
     password: string | null,
-    role: string | null
+    role: string | null,
+    address: string | null,
+    contact_number: string | null
 }
 
 const initial_Value: User_Type = {
@@ -16,7 +18,9 @@ const initial_Value: User_Type = {
     image: '',
     email: '',
     password: '',
-    role: ''
+    role: '',
+    address: '',
+    contact_number: ''
 }
 
 const authSlice = createSlice({
@@ -24,13 +28,15 @@ const authSlice = createSlice({
     initialState: initial_Value,
     reducers: {
         setUser: (state, action: PayloadAction<User_Type>) => {
-            const { user_id, name, image, email, password, role } = action.payload;
+            const { user_id, name, image, email, password, role, address, contact_number } = action.payload;
             state.user_id = user_id;
             state.name = name;
             state.image = image;
             state.password = password;
             state.role = role;
             state.email = email;
+            state.address = address;
+            state.contact_number = contact_number;
         },
         removeUser: (state) => {
             state.user_id = null;
@@ -39,6 +45,8 @@ const authSlice = createSlice({
             state.password = null;
             state.role = null;
             state.email = null;
+            state.address = null;
+            state.contact_number = null
         }
     }
 })

@@ -10,9 +10,16 @@ const userApi = baseApi.injectEndpoints({
                 url: '/user',
                 method: 'POST',
                 body: data
-            })
-        })
+            }),
+        }),
+        updateUser: builder.mutation({
+            query: ({ data, uid }) => ({
+                url: `/user/${uid}`,
+                method: "PATCH",
+                body: data
+            }),
+        }),
     })
 })
 
-export const { useRegisterUserMutation } = userApi;
+export const { useRegisterUserMutation, useUpdateUserMutation } = userApi;

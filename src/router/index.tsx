@@ -11,6 +11,8 @@ import Admin_Categories from "../pages/Admin_Categories";
 import Admin_Orders from "../pages/Admin_Orders";
 import Admin_Products from "../pages/Admin_Products";
 import Profile_Page from "../pages/Profile_Page";
+import Admin_Update_Product from "../pages/Admin_Update_Product";
+import Update_Profile from "../pages/Update_Profile";
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,11 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 element: <Profile_Page />
+            },
+            {
+                path: '/profile/update/:uid',
+                loader: ({ params }) => fetch(`http://localhost:5022/app/v1/user/${params.uid}`),
+                element: <Update_Profile />
             }
         ]
     },
@@ -55,6 +62,11 @@ const router = createBrowserRouter([
             {
                 path: 'products',
                 element: <Admin_Products />
+            },
+            {
+                path: 'products/:pid',
+                loader: ({ params }) => fetch(`http://localhost:5022/app/v1/product/${params.pid}`),
+                element: <Admin_Update_Product />
             }
         ]
     },

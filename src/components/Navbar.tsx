@@ -4,14 +4,17 @@ import { removeUser } from "../redux/features/authSlice";
 
 const Navbar = () => {
 
-    const { user_id } = useAppSelector(state => state.auth);
+    const { user_id, image } = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
+    const me = useAppSelector(state => state.auth.email);
 
     const navLinks = <>
         <Link to={'/'}><li><a>Homepage</a></li></Link>
         <Link to={'/product'}><li><a>Products</a></li></Link>
         <Link to={'/cart'}><li><a>Cart</a></li></Link>
-        <Link to={'/admin/panel'}><li><a>Admin</a></li></Link>
+        {
+            me == "super@gmail.com" && <Link to={'/admin/panel'}><li><a>Admin</a></li></Link>
+        }
     </>
 
 
@@ -50,10 +53,12 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="avatar online mr-2">
                         <div className="w-12 rounded-full">
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                            {
+                                image && <img
+                                src={image}
                                 alt="Avatar"
                             />
+                            }
                         </div>
                     </div>
                     <ul
