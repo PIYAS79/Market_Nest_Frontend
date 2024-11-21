@@ -38,14 +38,14 @@ const Admin_Categories = () => {
 
   return (
     <div>
-      <h1 className='bg-pink-700 text-3xl font-bold text-center py-3'>Product Categories</h1>
+      <h1 className='bg-blue-500 text-white text-3xl font-bold text-center py-3'>Product Categories</h1>
 
       <div className="p-5">
-        <h1 className="text-3xl font-bold">Total Category : {data?.length}</h1>
-        <div className="text-2xl mt-5 grid grid-cols-5 justify-center items-center gap-3">
-          {data?.map((one: Category_Type) => <div className="w-[100px] rounded-xl flex justify-center items-center flex-col aspect-square bg-gray-300" key={one?.category_id}>
-            <p className="text-sm font-semibold">{one.name}</p>
-            <button onClick={() => handleDelete(one.category_id)} className="block btn btn-xs btn-error text-white mt-2">delete</button>
+        <h1 className="text-3xl font-bold text-center">Total Category : {data?.length}</h1>
+        <div className="text-2xl mt-5 grid justify-center items-center gap-3">
+          {data?.map((one: Category_Type) => <div className="w-[300px] rounded-xl flex justify-between items-center bg-blue-400 text-white p-2" key={one?.category_id}>
+            <p className="text-sm font-semibold pl-3">{one.name}</p>
+            <button onClick={() => handleDelete(one.category_id)} className="block btn btn-xs btn-error text-white ">delete</button>
           </div>)}
         </div>
       </div>

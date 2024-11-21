@@ -48,17 +48,17 @@ const Cart_page = () => {
 
 
     return (
-        <div className="flex max-w-7xl mx-auto gap-3 p-5">
-            <div className="w-[50%] grid gap-y-3">
+        <div className="flex max-w-7xl mx-auto gap-3 p-5 h-[calc(100vh-4.4rem)]">
+            <div className="w-[50%] gap-y-3">
                 {cart.map((product, index) => (
                     <div
                         key={index}
-                        className="bg-gray-200 flex justify-between rounded-xl overflow-hidden"
+                        className="bg-gray-200 flex justify-between rounded-xl overflow-hidden h-[150px] mb-5"
                     >
                         <div className="p-5">
                             <h1 className="font-bold text-2xl">{product.name}</h1>
                             <h1>Quantity: 1</h1>
-                            <h2>Price: ${product.price}</h2>
+                            <h2>Price: ৳{product.price}</h2>
                         </div>
                         <div className="h-full flex justify-center items-center">
                             <img
@@ -71,11 +71,10 @@ const Cart_page = () => {
                 ))}
             </div>
 
-            {/* Purchase Section */}
             <div className="w-[50%] bg-gray-200 text-center h-[200px] rounded-xl overflow-hidden">
                 <h1 className="text-2xl bg-blue-400 py-2 font-bold text-white">Purchase Section</h1>
                 <h1 className="text-xl font-bold mt-2">Total</h1>
-                <h1 className="text-4xl font-bold">${totalPrice}</h1>
+                <h1 className="text-4xl font-bold">৳{totalPrice}</h1>
                 <button onClick={() => handleClickPurchase(cart[0].product_id)} className="btn bg-blue-500 hover:bg-blue-600 text-white mt-3">Purchase Now</button>
             </div>
         </div>

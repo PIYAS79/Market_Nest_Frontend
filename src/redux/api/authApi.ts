@@ -12,8 +12,18 @@ const authApi = baseApi.injectEndpoints({
                 body: data
             }),
         }),
+        getDashOverview: builder.query({
+            query: () => ({
+                url: '/auth/dashboard',
+                method: "GET"
+            }),
+            transformErrorResponse: (res: any) => {
+                return res.data.data;
+            },
+            providesTags: ['product', 'user', 'order', 'category']
+        })
 
     })
 })
 
-export const { useLogin_UserMutation } = authApi;
+export const { useLogin_UserMutation,useGetDashOverviewQuery } = authApi;

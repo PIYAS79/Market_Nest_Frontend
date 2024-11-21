@@ -84,10 +84,10 @@ const Navbar = () => {
 
                 {
                     user_id ?
-                        <button onClick={() => dispatch(removeUser())} className="btn bg-red-600 border-none text-white">Logout</button>
+                        <button onClick={() => dispatch(removeUser())} className="btn bg-blue-500 hover:bg-blue-600 text-white border-none border-none text-white">Logout</button>
                         :
                         <Link to={'/login'}>
-                            <a className="btn btn-primary">Login</a>
+                            <a className="btn bg-blue-500 hover:bg-blue-600 text-white border-none">Login</a>
                         </Link>
                 }
             </div>

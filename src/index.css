@@ -4,6 +4,16 @@
 
 nav .active {
     background: rgb(91, 91, 243);
-    color:white;
+    color: white;
     border-radius: 1rem;
+}
+
+
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }

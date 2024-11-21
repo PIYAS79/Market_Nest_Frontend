@@ -34,8 +34,8 @@ const Add_Product = () => {
 
     return (
         <>
-            <h1 className='bg-green-600 text-center font-bold py-2'>Add Product</h1>
-            <form className="card-body" onSubmit={handleSubmitProduct}>
+            <h1 className='bg-blue-500 text-white text-center font-bold py-2'>Add Product</h1>
+            <form className="card-body py-1" onSubmit={handleSubmitProduct}>
                 {/* Product Name */}
                 <div className="form-control">
                     <label className="label">
@@ -117,8 +117,8 @@ const Add_Product = () => {
 
                 {/* Submit Button */}
                 <div className="form-control mt-6">
-                    <button type="submit" className="btn btn-primary">
-                        Submit Product
+                    <button type="submit" className="btn bg-blue-500 hover:bg-blue-600 text-white mb-4">
+                        Add Product
                     </button>
                 </div>
             </form>

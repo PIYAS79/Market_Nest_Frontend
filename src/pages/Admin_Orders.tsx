@@ -46,7 +46,7 @@ const Admin_Orders = () => {
 
   return (
     <div>
-      <h1 className='bg-pink-700 text-3xl font-bold text-center py-3'>Current Orders</h1>
+      <h1 className='bg-blue-500 text-white text-3xl font-bold text-center py-3'>Current Orders</h1>
       <div className="overflow-x-auto m-3">
         <table className="table">
           {/* head */}
