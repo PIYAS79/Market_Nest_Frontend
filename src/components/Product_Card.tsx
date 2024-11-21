@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { Product_Type } from "../constants/types"
 import { useAppSelector } from "../redux/hooks";
-import { Navigate, replace, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 const Product_Card = ({ data }: { data: Product_Type }) => {

@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useUpdateUserMutation } from '../redux/api/userApi';
 import Swal from 'sweetalert2';

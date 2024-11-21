@@ -9,7 +9,6 @@ const Register_page = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [image, setImage] = useState('');
   const [address, setAddress] = useState('');
   const [contact, setContact] = useState('');
   const navigate = useNavigate();
