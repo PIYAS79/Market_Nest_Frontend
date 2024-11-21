@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { removeUser } from "../redux/features/authSlice";
 
 const Navbar = () => {
 
-    const { user_id, image,role } = useAppSelector(state => state.auth);
+    const { user_id, image, role } = useAppSelector(state => state.auth);
+    console.log("image", typeof (image))
     const dispatch = useAppDispatch();
-    const me = useAppSelector(state => state.auth.email);
 
     const navLinks = <>
-        <Link to={'/'}><li><a>Homepage</a></li></Link>
-        <Link to={'/product'}><li><a>Products</a></li></Link>
-        <Link to={'/cart'}><li><a>Cart</a></li></Link>
+        <NavLink to={'/'}><li><a>Homepage</a></li></NavLink>
+        <NavLink to={'/product'}><li><a>Products</a></li></NavLink>
+        <NavLink to={'/cart'}><li><a>Cart</a></li></NavLink>
         {
             role == "ADMIN" && <Link to={'/admin/panel'}><li><a>Admin</a></li></Link>
         }
@@ -19,9 +19,9 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-red-100 ">
+        <div className="navbar bg-blue-300 ">
             <div className="navbar-start">
-                <div className="dropdown">
+                <nav className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -41,14 +41,18 @@ const Navbar = () => {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         {navLinks}
                     </ul>
-                </div>
-                <a className="btn btn-ghost text-xl">E-Chocolate</a>
+                </nav>
+                <a className="btn btn-ghost text-xl">
+                    <Link to={'/'}>
+                        <img width={50} src="https://i.ibb.co.com/2qcCqDx/logomn-removebg-preview.png" alt="" />
+                    </Link>
+                </a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <nav className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navLinks}
                 </ul>
-            </div>
+            </nav>
             <div className="navbar-end">
                 {
                     user_id &&
@@ -56,8 +60,8 @@ const Navbar = () => {
                         <div tabIndex={0} role="button" className="avatar online mr-2">
                             <div className="w-12 rounded-full">
                                 {
-                                    image && <img
-                                        src={image}
+                                    <img
+                                        src={image ? image : "https://i.ibb.co.com/TtWzY9p/photo-2024-11-22-00-22-16.jpg"}
                                         alt="Avatar"
                                     />
                                 }
@@ -80,7 +84,7 @@ const Navbar = () => {
 
                 {
                     user_id ?
-                        <button onClick={() => dispatch(removeUser())} className="btn btn-error text-white">Logout</button>
+                        <button onClick={() => dispatch(removeUser())} className="btn bg-red-600 border-none text-white">Logout</button>
                         :
                         <Link to={'/login'}>
                             <a className="btn btn-primary">Login</a>

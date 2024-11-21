@@ -73,7 +73,7 @@ const Update_Profile = () => {
                         <input
                             type="text"
                             value={contact}
-                            onChange={(e) => setContact(Number(e.target.value))}
+                            onChange={(e) => setContact(e.target.value)}
                             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             placeholder="Enter contact value"
                         />
@@ -87,7 +87,7 @@ const Update_Profile = () => {
                         <input
                             type="text"
                             value={address}
-                            onChange={(e) => setAddress(Number(e.target.value))}
+                            onChange={(e) => setAddress(e.target.value)}
                             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             placeholder="Enter product price"
                         />
@@ -101,7 +101,7 @@ const Update_Profile = () => {
                         <input
                             type="text"
                             value={image}
-                            onChange={(e) => setImage(Number(e.target.value))}
+                            onChange={(e) => setImage(e.target.value)}
                             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             placeholder="Enter user image"
                         />

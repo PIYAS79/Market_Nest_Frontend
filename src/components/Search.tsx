@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Category_Type } from "../constants/types";
+import { FaSearch } from "react-icons/fa";
 
 const Search = ({
   categories,
@@ -14,25 +15,25 @@ const Search = ({
   const [searchInput, setSearchInput] = useState<string>("");
 
   const handleCategorySearch = () => {
-    handleClickCategorySearch(selectedOption); // Trigger the category search
+    handleClickCategorySearch(selectedOption);
   };
 
   const handleProductNameSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    handleNameSearch(searchInput); // Trigger the name search
+    handleNameSearch(searchInput);
   };
 
   return (
-    <div className="bg-red-600 mb-5 flex justify-between">
+    <div className="mb-5 flex justify-between bg-white rounded-xl">
       <div className="flex gap-2">
         <select
-          className="select w-full max-w-xs"
+          className="select w-full max-w-xs border border-blue-500"
           value={selectedOption}
           onChange={(e) => {
             const value = e.target.value;
             setSelectedOption(value);
             if (value === "reset") {
-              handleClickCategorySearch("reset"); 
+              handleClickCategorySearch("reset");
             }
           }}
         >
@@ -46,19 +47,20 @@ const Search = ({
             </option>
           ))}
         </select>
-        <button className="btn" onClick={handleCategorySearch}>
+        <button className="btn bg-blue-500 hover:bg-blue-600 text-white" onClick={handleCategorySearch}>
           Search
         </button>
       </div>
-      <form className="p-2 flex items-center" onSubmit={handleProductNameSearch}>
+      <form className="flex items-center" onSubmit={handleProductNameSearch}>
         <input
           type="text"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className="p-1 text-md rounded-lg px-2 border-none outline-none"
+          className="py-3 relative border border-blue-500 text-md rounded-lg px-2 pl-10 outline-none"
           placeholder="Search by product name"
         />
-        <button className="btn btn-sm ml-2 btn-primary" type="submit">
+        <FaSearch className="absolute ml-3" />
+        <button className="btn ml-2 bg-blue-500 hover:bg-blue-600 text-white" type="submit">
           Search
         </button>
       </form>

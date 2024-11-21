@@ -51,7 +51,7 @@ const Admin_Orders = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="bg-blue-500">
+            <tr className="bg-blue-500 text-white">
               <th>Order ID</th>
               <th>Time</th>
               <th>User Name</th>

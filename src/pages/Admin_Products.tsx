@@ -43,7 +43,7 @@ const Admin_Products = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="bg-blue-500">
+            <tr className="bg-blue-500 text-white">
               <th>Product ID</th>
               <th>Name</th>
               <th>Category</th>

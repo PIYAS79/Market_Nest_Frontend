@@ -41,7 +41,7 @@ const User_Order_List = () => {
                     {orders?.map((order: Order_Type) => (
                         <div
                             key={order?.order_id}
-                            className="p-4 border rounded shadow-md flex justify-between items-center"
+                            className="p-4 border rounded shadow-md flex justify-between items-center bg-gray-200"
                         >
                             <div>
                                 <h2 className="font-bold text-lg">{order?.product?.name}</h2>

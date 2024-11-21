@@ -18,8 +18,20 @@ const userApi = baseApi.injectEndpoints({
                 method: "PATCH",
                 body: data
             }),
+            invalidatesTags: ['user']
         }),
+        getAllUser: builder.query({
+            query: () => ({
+                url: '/user',
+                method: "GET"
+            }),
+            providesTags: ['user'],
+            transformResponse: (res: any) => {
+                console.log(res)
+                return res.data;
+            }
+        })
     })
 })
 
-export const { useRegisterUserMutation, useUpdateUserMutation } = userApi;
+export const { useRegisterUserMutation, useGetAllUserQuery, useUpdateUserMutation } = userApi;

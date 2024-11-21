@@ -42,12 +42,11 @@ const Admin_Categories = () => {
 
       <div className="p-5">
         <h1 className="text-3xl font-bold">Total Category : {data?.length}</h1>
-        <div className="text-2xl mt-5">
-          {data?.map((one: Category_Type) => <p key={one?.category_id}>- {one.name}
-
-            <button onClick={() => handleDelete(one.category_id)} className="btn btn-xs btn-error ml-2">delete</button>
-
-          </p>)}
+        <div className="text-2xl mt-5 grid grid-cols-5 justify-center items-center gap-3">
+          {data?.map((one: Category_Type) => <div className="w-[100px] rounded-xl flex justify-center items-center flex-col aspect-square bg-gray-300" key={one?.category_id}>
+            <p className="text-sm font-semibold">{one.name}</p>
+            <button onClick={() => handleDelete(one.category_id)} className="block btn btn-xs btn-error text-white mt-2">delete</button>
+          </div>)}
         </div>
       </div>
 

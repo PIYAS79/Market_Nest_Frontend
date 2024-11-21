@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom"; 
 import Product_Card from "../components/Product_Card";
 import Search from "../components/Search";
 import { Product_Type } from "../constants/types";
@@ -9,29 +10,29 @@ const Product_page = () => {
   const { data: products } = useGetAllProductsQuery(undefined);
   const { data: categories } = useGetAllCategoryQuery(undefined);
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const location = useLocation();
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    location.state?.selectedCategory || ""
+  );
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleClickCategorySearch = (ct: string) => {
-    if (ct === "reset") {
-      setSelectedCategory(""); // Reset the category filter
-    } else {
-      setSelectedCategory(ct); // Update selected category state
-    }
+    setSelectedCategory(ct === "reset" ? "" : ct); 
+    setSearchQuery(""); 
   };
 
   const handleNameSearch = (query: string) => {
-    setSearchQuery(query); // Update the search query
+    setSearchQuery(query);
+    setSelectedCategory(""); 
   };
 
-  // Filter products based on selected category and search query
-  const filteredProducts = products
-    ?.filter((product: Product_Type) =>
-      selectedCategory ? product.category === selectedCategory : true
-    )
-    ?.filter((product: Product_Type) =>
-      searchQuery ? product.name.toLowerCase().includes(searchQuery.toLowerCase()) : true
-    );
+  const filteredProducts = selectedCategory
+    ? products?.filter((product: Product_Type) => product.category === selectedCategory)
+    : searchQuery
+    ? products?.filter((product: Product_Type) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : products; 
 
   return (
     <div className="p-5 max-w-7xl mx-auto overflow-y-scroll h-[calc(100vh-4.4rem)]">

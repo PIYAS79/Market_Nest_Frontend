@@ -41,9 +41,9 @@ const Product_Card = ({ data }: { data: Product_Type }) => {
                 <p>{data?.description}</p>
                 <div className="card-actions justify-end">
                     <div className="flex justify-between w-full items-center">
-                        <div className="badge badge-secondary">{data?.category}</div>
+                        <div className="badge bg-blue-400 text-white">{data?.category}</div>
                         <button
-                            className="btn btn-primary"
+                            className="btn bg-blue-500 hover:bg-blue-600 text-white"
                             onClick={() =>
                                 addToCart(data)
                             }

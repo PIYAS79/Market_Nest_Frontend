@@ -15,6 +15,7 @@ import Admin_Update_Product from "../pages/Admin_Update_Product";
 import Update_Profile from "../pages/Update_Profile";
 import User_Order_List from "../pages/User_Order_List";
 import Protected_Routes from "../pages/Protected_Routes";
+import Admin_Users_page from "../pages/Admin_Users_page";
 
 
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path: 'orders',
                 element: <Admin_Orders />
+            },
+            {
+                path: 'users',
+                element: <Admin_Users_page />
             },
             {
                 path: 'products',
