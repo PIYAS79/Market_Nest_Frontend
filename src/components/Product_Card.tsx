@@ -29,8 +29,8 @@ const Product_Card = ({ data }: { data: Product_Type }) => {
         <div className="card card-compact bg-base-100 w-96 max-h-[400px] shadow-xl">
             <figure>
                 <img
-                    src="https://www.health.com/thmb/QEDERVgktTQA_KwXSCqRYPrRJrU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1448038415-ad65b0afdb084055ac1b93703db77c85.jpg"
-                    alt="Shoes"
+                    src={data?.image}
+                    alt={data?.name}
                 />
             </figure>
             <div className="card-body">
