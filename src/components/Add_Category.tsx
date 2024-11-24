@@ -11,7 +11,6 @@ const Add_Category = () => {
         event.preventDefault();
         try {
           const result: any = await createCategoryFnc({ category_name:name });
-          console.log(result)
           if(result?.data?.data?.raw?.affectedRows == 1){
             Swal.fire("Successfully Created");
           }

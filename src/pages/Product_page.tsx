@@ -35,7 +35,7 @@ const Product_page = () => {
     : products; 
 
   return (
-    <div className="p-5 max-w-7xl mx-auto overflow-y-scroll h-[calc(100vh-4.4rem)]">
+    <div className="p-5 mb-10 max-w-7xl mx-auto overflow-y-scroll h-[calc(100vh-4.4rem)]">
       <Search
         handleClickCategorySearch={handleClickCategorySearch}
         handleNameSearch={handleNameSearch}

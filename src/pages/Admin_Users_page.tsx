@@ -12,7 +12,7 @@ const Admin_Users_page = () => {
     const handleUpdateUserRole = async (uid: number, role: string) => {
         Swal.fire({
             title: "Are you sure?",
-            text: "You want to make this user as admin ?",
+            text: `You want to make this user as ${role} ?`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -20,7 +20,10 @@ const Admin_Users_page = () => {
             confirmButtonText: "Yes, make it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await updateFnc({ data: { role: role }, uid: uid });
+                const res = await updateFnc({ data: { role: role }, uid: uid }) as any;
+                if (res?.error?.status == 400) {
+                    Swal.fire(res?.error?.data?.Error_Title)
+                }
                 if (res?.data?.success) {
                     Swal.fire({
                         title: "Updated!",

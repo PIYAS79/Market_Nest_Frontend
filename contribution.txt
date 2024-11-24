@@ -1,0 +1,24 @@
+
+
+
+Mahedi--------------------------------------------
+Order Module + Order Related Frontend
+
+
+Rizvee -------------------------------------------
+User Module + User Realted Frontend
+
+
+Himel---------------------------------------------
+Product Module + Product Related Frontend 
+
+
+Alif ---------------------------------------------
+Category Module + Category Related Frontend 
+
+
+Sumaiya-------------------------------------------
+Auth Module + Auth Realted Frontend + Design Part
+
+
+

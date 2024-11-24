@@ -14,8 +14,6 @@ const persistConfig = {
 const persistedAuthReducer = persistReducer(persistConfig, authReducer)
 
 
-
-
 export const store = configureStore({
     reducer: {
         [baseApi.reducerPath]: baseApi.reducer,

@@ -31,12 +31,13 @@ const Product_Card = ({ data }: { data: Product_Type }) => {
                 <img
                     src={data?.image}
                     alt={data?.name}
+                    className="object-cover h-[200px]"
                 />
             </figure>
             <div className="card-body">
                 <div className="flex justify-between items-center">
                     <h2 className="card-title">{data?.name}</h2>
-                    <h2 className="card-title">${data.price}</h2>
+                    <h2 className="card-title">৳{data.price}</h2>
                 </div>
                 <p>{data?.description}</p>
                 <div className="card-actions justify-end">

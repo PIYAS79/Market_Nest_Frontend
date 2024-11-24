@@ -23,7 +23,6 @@ const Add_Product = () => {
             image,
             description,
         };
-        console.log(productData)
         const res = await createProductFnc(productData);
         if(res?.data?.success){
             Swal.fire("Successfully Create A Product");
