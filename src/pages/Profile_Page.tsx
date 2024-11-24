@@ -7,7 +7,7 @@ const Profile_Page = () => {
 
 
     return (
-        <div className="flex flex-col justify-center items-center text-center max-w-5xl gap-5 mx-auto bg-gray-200 mt-10 rounded-xl">
+        <div className="h-[calc(100vh-4.4rem)] flex flex-col justify-center items-center text-center max-w-5xl gap-5 mx-auto bg-gray-200 my-10 rounded-xl">
             {image && <img
                 src={image}
                 className="max-w-s shadow-2xl w-[250px] aspect-square rounded-full object-cover mt-3" />}
